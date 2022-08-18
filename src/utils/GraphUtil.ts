@@ -31,6 +31,7 @@ export function getFormattedGraphData(
     .map((expense) => {
       return {
         date:  DateUtil.getDisplayDate(expense.date),
+        expense: expense.expense,
         cost: expense.cost,
       };
     })

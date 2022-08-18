@@ -82,7 +82,38 @@ function ExpenseGraph() {
             />
             <YAxis dataKey='cost' />
             <Area dataKey='cost' stroke='#04c18e' fill='#f6f7fa' />
-            <Tooltip payload={[{ name: '05-01', value: 12, unit: 'kg' }]} />
+            <Tooltip content={(props) => (
+    <div style={{
+      border: '#bbb 1.5px solid',
+    }}>
+      <p style={{
+        margin: '0 0',
+        padding: '3px 7.5px',
+        backgroundColor: 'white',
+      }}>
+        {props.payload && props.payload[0] != null && props.payload[0].payload.expense}
+      </p>
+      <p style={{
+        margin: '0 0',
+        padding: '3px 7.5px',
+        backgroundColor: 'white',
+      }}>
+        {props.payload && props.payload[0] != null && props.payload[0].payload.date}
+      </p>
+      <p style={{
+        margin: '0 0',
+        padding: '3px 7.5px',
+        backgroundColor: 'white',
+        color: '#007AFF',
+      }}>
+        Cost:
+        {' '}
+        {
+          props.payload && props.payload[0] != null && props.payload[0].payload.cost
+        }
+      </p>
+    </div>
+  )} />
             <CartesianGrid stroke='#ccc' strokeDasharray='5 2' />
           </AreaChart>
         </ResponsiveContainer>

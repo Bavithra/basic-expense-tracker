@@ -2,15 +2,14 @@ import React from 'react';
 import './App.css';
 import 'antd/dist/antd.min.css';
 
-import ExpenseHistory from './components/ExpenseHistory';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
-import ExpenseGraph from './components/ExpenseGraph';
+
+import ExpenseViewPage from './pages/ExpenseViewPage';
 
 const App = () => (
   <Provider store={store}>
-    <ExpenseGraph />
-    <ExpenseHistory />
+    <ExpenseViewPage />
   </Provider>
 );
 

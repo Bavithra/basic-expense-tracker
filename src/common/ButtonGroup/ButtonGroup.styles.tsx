@@ -22,6 +22,6 @@ export const Button = styled.div`
   text-align: center;
   cursor: pointer;
   background: ${(props: ButtonProps) =>
-    props.isActive ? "#4fb456" : "#f6f7fa"};
+    props.isActive ? "#1890ff" : "#f6f7fa"};
   border-radius: 3px;
 `;
