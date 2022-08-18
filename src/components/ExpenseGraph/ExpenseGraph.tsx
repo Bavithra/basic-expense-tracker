@@ -11,7 +11,7 @@ import {
 } from 'recharts';
 import ButtonGroup from '../../common/ButtonGroup';
 import { GraphPeriod } from '../../enums/GraphPeriod.enum';
-import { RootState } from "../../redux/store";
+import { RootState } from '../../redux/store';
 import DateUtil from '../../utils/DateUtil';
 import GraphUtil from '../../utils/GraphUtil';
 import { Container } from './ExpenseGraph.styles';
@@ -23,7 +23,7 @@ function ExpenseGraph() {
     setPeriod(selectedPeriod);
   };
 
-  const list =  useSelector(
+  const list = useSelector(
     (state: RootState) => state.reducer.data.expenseList
   );
   const data = GraphUtil.getFormattedGraphData(period, list);
@@ -39,6 +39,14 @@ function ExpenseGraph() {
         ]}
         onButtonClick={handleButtonClick}
       />
+
+{list.length > 0 && <h2>{`Total Expense: ${list
+        .map((item) => item.cost)
+        .reduce((prev, next) => prev + next)}`}</h2>}
+      {data.length > 0 && <h2>{`Total Expense for the selected period : ${data
+        .map((item) => item.cost)
+        .reduce((prev, next) => prev + next)}`}</h2>}
+
       {data.length > 0 ? (
         <ResponsiveContainer width='100%' height={400}>
           <AreaChart

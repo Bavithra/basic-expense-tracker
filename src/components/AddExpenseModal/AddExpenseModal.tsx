@@ -62,6 +62,7 @@ export default function AddExpenseModal(props: Props) {
 
   function handleSubmit() {
     dispatch(addExpense({ ...expense, key: generateKey() }));
+    setExpense(initialInput);
     setIsAddExpenseModalOpen(false);
   }
 
