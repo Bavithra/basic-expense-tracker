@@ -29,7 +29,6 @@ https://gleaming-beignet-d30838.netlify.app/
 ## 📹 Demo
 - Add New Expense
 
-
-
+![ezgif-5-88031731fb](https://user-images.githubusercontent.com/3985553/185506861-a8322bdd-937d-41df-bad5-2e688f82434a.gif)
 
 
