@@ -42,10 +42,10 @@ function ExpenseGraph() {
 
 {list.length > 0 && <h2>{`Total Expense: ${list
         .map((item) => item.cost)
-        .reduce((prev, next) => prev + next)}`}</h2>}
+        .reduce((prev, next) => prev + next)} SGD`}</h2>}
       {data.length > 0 && <h2>{`Total Expense for the selected period : ${data
         .map((item) => item.cost)
-        .reduce((prev, next) => prev + next)}`}</h2>}
+        .reduce((prev, next) => prev + next)} SGD`}</h2>}
 
       {data.length > 0 ? (
         <ResponsiveContainer width='100%' height={400}>
