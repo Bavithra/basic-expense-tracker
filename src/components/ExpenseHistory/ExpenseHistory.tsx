@@ -1,5 +1,8 @@
 import React from "react";
 import { Space, Table, Tag } from 'antd';
+import { RootState } from "../../redux/store";
+import { useSelector } from "react-redux";
+import { Container } from "./ExpenseHistory.styles";
 
 const columns = [
   {
@@ -47,32 +50,13 @@ const columns = [
     ),
   },
 ];
-const data = [
-  {
-    key: '1',
-    expense: 'Groceries',
-    date: '02-02-2022',
-    cost: 23.9,
-    tags: ['nice', 'developer'],
-  },
-  {
-    key: '2',
-    expense: 'Groceries',
-    date: '02-02-2022',
-    cost: 23,
-    tags: ['nice', 'developer'],
-  },
-  {
-    key: '3',
-    expense: 'Groceries',
-    date: '02-02-2022',
-    cost: 23,
-    tags: ['nice', 'developer'],
-  },
-];
 
 function ExpenseHistory() {
-  return <Table columns={columns} dataSource={data} />
+  const data = useSelector(
+    (state: RootState) => state.reducer.data.expenseList
+  );
+
+  return <Container><Table columns={columns} dataSource={data} /></Container>;
 }
 
 export default ExpenseHistory;
