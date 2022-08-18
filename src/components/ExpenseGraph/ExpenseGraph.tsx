@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import {
   AreaChart,
   XAxis,
@@ -10,6 +11,7 @@ import {
 } from 'recharts';
 import ButtonGroup from '../../common/ButtonGroup';
 import { GraphPeriod } from '../../enums/GraphPeriod.enum';
+import { RootState } from "../../redux/store";
 import DateUtil from '../../utils/DateUtil';
 import GraphUtil from '../../utils/GraphUtil';
 import { Container } from './ExpenseGraph.styles';
@@ -21,36 +23,9 @@ function ExpenseGraph() {
     setPeriod(selectedPeriod);
   };
 
-  const list = [
-    {
-      key: '1',
-      expense: 'Groceries',
-      date: '08-02-2022',
-      cost: 58.8,
-      tags: ['essential', 'food'],
-    },
-    {
-      key: '2',
-      expense: 'Electric Bill',
-      date: '08-03-2022',
-      cost: 230,
-      tags: ['bill'],
-    },
-    {
-      key: '3',
-      expense: 'Shopping',
-      date: '08-16-2022',
-      cost: 345.5,
-      tags: ['shopping', 'outfit'],
-    },
-    {
-      key: '3',
-      expense: 'Shopping',
-      date: '04-16-2022',
-      cost: 34.5,
-      tags: ['shopping', 'outfit'],
-    },
-  ];
+  const list =  useSelector(
+    (state: RootState) => state.reducer.data.expenseList
+  );
   const data = GraphUtil.getFormattedGraphData(period, list);
 
   return (
@@ -82,38 +57,51 @@ function ExpenseGraph() {
             />
             <YAxis dataKey='cost' />
             <Area dataKey='cost' stroke='#04c18e' fill='#f6f7fa' />
-            <Tooltip content={(props) => (
-    <div style={{
-      border: '#bbb 1.5px solid',
-    }}>
-      <p style={{
-        margin: '0 0',
-        padding: '3px 7.5px',
-        backgroundColor: 'white',
-      }}>
-        {props.payload && props.payload[0] != null && props.payload[0].payload.expense}
-      </p>
-      <p style={{
-        margin: '0 0',
-        padding: '3px 7.5px',
-        backgroundColor: 'white',
-      }}>
-        {props.payload && props.payload[0] != null && props.payload[0].payload.date}
-      </p>
-      <p style={{
-        margin: '0 0',
-        padding: '3px 7.5px',
-        backgroundColor: 'white',
-        color: '#007AFF',
-      }}>
-        Cost:
-        {' '}
-        {
-          props.payload && props.payload[0] != null && props.payload[0].payload.cost
-        }
-      </p>
-    </div>
-  )} />
+            <Tooltip
+              content={(props) => (
+                <div
+                  style={{
+                    border: '#bbb 1.5px solid',
+                  }}
+                >
+                  <p
+                    style={{
+                      margin: '0 0',
+                      padding: '3px 7.5px',
+                      backgroundColor: 'white',
+                    }}
+                  >
+                    {props.payload &&
+                      props.payload[0] != null &&
+                      props.payload[0].payload.expense}
+                  </p>
+                  <p
+                    style={{
+                      margin: '0 0',
+                      padding: '3px 7.5px',
+                      backgroundColor: 'white',
+                    }}
+                  >
+                    {props.payload &&
+                      props.payload[0] != null &&
+                      props.payload[0].payload.date}
+                  </p>
+                  <p
+                    style={{
+                      margin: '0 0',
+                      padding: '3px 7.5px',
+                      backgroundColor: 'white',
+                      color: '#007AFF',
+                    }}
+                  >
+                    Cost:{' '}
+                    {props.payload &&
+                      props.payload[0] != null &&
+                      props.payload[0].payload.cost}
+                  </p>
+                </div>
+              )}
+            />
             <CartesianGrid stroke='#ccc' strokeDasharray='5 2' />
           </AreaChart>
         </ResponsiveContainer>

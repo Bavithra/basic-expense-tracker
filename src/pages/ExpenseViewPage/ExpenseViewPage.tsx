@@ -15,8 +15,6 @@ function ExpenseViewPage() {
     setIsAddExpenseModalOpen(true);
   }
 
-  async function onSaveExpenseClick() {}
-
   return (
     <>
     <h1>Expense Tracker</h1>
@@ -36,7 +34,6 @@ function ExpenseViewPage() {
       <AddExpenseModal
         isOpen={isAddExpenseModalOpen}
         setIsAddExpenseModalOpen={setIsAddExpenseModalOpen}
-        onSaveClick={onSaveExpenseClick}
       />
     </>
   );

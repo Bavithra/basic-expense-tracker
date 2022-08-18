@@ -5,23 +5,30 @@ const initialState = {
     {
       key: '1',
       expense: 'Groceries',
-      date: '02-02-2022',
+      date: '08-02-2022',
       cost: 58.8,
       tags: ['essential', 'food'],
     },
     {
       key: '2',
       expense: 'Electric Bill',
-      date: '02-02-2022',
+      date: '08-03-2022',
       cost: 230,
       tags: ['bill'],
     },
     {
       key: '3',
       expense: 'Shopping',
-      date: '02-02-2022',
+      date: '08-16-2022',
       cost: 345.5,
       tags: ['shopping', 'outfit'],
+    },
+    {
+      key: '4',
+      expense: 'Shopping',
+      date: '04-16-2022',
+      cost: 34.5,
+      tags: ['shopping'],
     },
   ],
 };
@@ -36,9 +43,13 @@ export const slice = createSlice({
       const { payload } = param;
       state.expenseList.push(payload);
     },
+    deleteExpense: (state, param) => {
+      const { payload } = param;
+      state.expenseList.splice(payload, 1);
+    },
   },
 });
 
-export const { addExpense } = slice.actions;
+export const { addExpense, deleteExpense } = slice.actions;
 
 export default slice.reducer;
