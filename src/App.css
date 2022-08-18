@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+.ant-select {
+  border: 0.7px solid #000000;
+}
+
+.ant-select-multiple .ant-select-selector {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  height: 40px;
+  padding: 1px 4px;
+}

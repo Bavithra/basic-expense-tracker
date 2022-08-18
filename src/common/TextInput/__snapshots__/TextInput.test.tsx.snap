@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextInput Block renders correctly 1`] = `
+<div
+  className="sc-dkzDqf fSUJtn"
+>
+  <input
+    className="sc-eCYdqJ feQGCx"
+    maxLength={200}
+    min="0"
+    onChange={[Function]}
+    readOnly={false}
+    type="string"
+  />
+  <label
+    className="sc-hKMtZM jtjkLl"
+  />
+</div>
+`;

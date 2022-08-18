@@ -32,11 +32,13 @@ export const slice = createSlice({
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
     // adds expense(s) to the existing expense list
-    addExpenses: (state, param) => {
+    addExpense: (state, param) => {
       const { payload } = param;
       state.expenseList.push(payload);
     },
   },
 });
+
+export const { addExpense } = slice.actions;
 
 export default slice.reducer;

@@ -44,7 +44,7 @@ const columns = [
     key: 'action',
     render: (_: any, record: any) => (
       <Space size="middle">
-        <a>Edit {record.expense}</a>
+        <a>Edit</a>
         <a>Delete</a>
       </Space>
     ),
