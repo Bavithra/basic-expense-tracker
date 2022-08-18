@@ -17,7 +17,7 @@ const columns = [
     render: (text: string) => <div>{text}</div>,
   },
   {
-    title: 'Cost',
+    title: 'Cost (SGD)',
     dataIndex: 'cost',
     key: 'cost',
   },
